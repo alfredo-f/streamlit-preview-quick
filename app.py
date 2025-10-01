@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
-# --- Custom CSS for the "Preview" Billboard-Style Overlay ---
+# --- Custom CSS for the "Preview" Billboard-Style Overlay with Animation ---
 st.markdown("""
 <style>
 /*
@@ -32,6 +32,32 @@ div[data-testid="stExpander"]::before {
     text-align: center;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 1;
+    
+    /* Animation properties */
+    background-image: linear-gradient(
+        -45deg, 
+        rgba(255, 255, 255, 0.3) 25%, 
+        transparent 25%, 
+        transparent 50%, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        rgba(255, 255, 255, 0.3) 75%, 
+        transparent 75%, 
+        transparent
+    );
+    background-size: 200% 200%;
+    animation: shimmer 2s infinite linear;
+}
+
+/*
+Define the shimmer animation
+*/
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
 }
 </style>
 """, unsafe_allow_html=True)
