@@ -20,17 +20,17 @@ The 'top' and 'right' values have been adjusted for full visibility.
 div[data-testid="stExpander"]::before {
     content: 'PREVIEW';
     position: absolute;
-    top: 12px;      /* Move it higher up */
-    right: -38px;     /* Move it more to the left (less negative) */
+    top: 7px;
+    right: -18px;
     transform: rotate(45deg);
     background-color: #007bff;
     color: white;
-    padding: 3px 35px; /* Adjust padding for a tighter look */
-    line-height: 20px; /* Explicitly set line height for vertical centering */
-    font-size: 0.8rem;
+    padding: 3px 35px;
+    line-height: 20px;
+    font-size: 11px;
     font-weight: bold;
     text-align: center;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 </style>
