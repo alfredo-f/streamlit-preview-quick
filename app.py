@@ -21,11 +21,12 @@ div[data-testid="stExpander"]::before {
     position: absolute;
     top: 12px;
     right: -28px;
+    padding: 3px 40px; /* Consistent padding to control ribbon size */
     
-    /* === TEXT POSITIONING UPDATE === */
-    text-align: left; /* Align text to the left of the ribbon */
-    padding: 3px 65px 3px 15px; /* Adjust padding (top, right, bottom, left) */
-    /* ============================= */
+    /* === KEY CHANGE: Move ONLY the text === */
+    text-align: center; /* Keep the text centered as its base position */
+    text-indent: -15px; /* Pulls the text 15px to the left from center */
+    /* ==================================== */
 
     transform: rotate(45deg);
     background-color: #007bff;
@@ -66,7 +67,7 @@ Define the shimmer animation
 
 st.header("Feature Dashboard")
 
-st.write("The expander below has the final, polished 'PREVIEW' ribbon.")
+st.write("The text in the ribbon is now shifted left without moving the ribbon itself.")
 
 # Expander with the "Preview" overlay
 with st.expander("AI-Powered Data Analysis", expanded=True):
