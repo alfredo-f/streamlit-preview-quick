@@ -15,17 +15,17 @@ div[data-testid="stExpander"] {
 
 /*
 Create and style the "PREVIEW" ribbon.
-The 'top' and 'right' values have been adjusted to hide the ribbon's end.
 */
 div[data-testid="stExpander"]::before {
     content: 'PREVIEW';
     position: absolute;
+    top: 12px;
+    right: -28px;
     
-    /* === ADJUSTED VALUES === */
-    top: 12px;       /* Pushes the ribbon down slightly */
-    right: -28px;      /* Pushes the ribbon further to the right */
-    padding: 3px 40px; /* Increased padding to give it more length */
-    /* ======================= */
+    /* === TEXT POSITIONING UPDATE === */
+    text-align: left; /* Align text to the left of the ribbon */
+    padding: 3px 65px 3px 15px; /* Adjust padding (top, right, bottom, left) */
+    /* ============================= */
 
     transform: rotate(45deg);
     background-color: #007bff;
@@ -33,11 +33,10 @@ div[data-testid="stExpander"]::before {
     line-height: 20px;
     font-size: 11px;
     font-weight: bold;
-    text-align: center;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 1;
 
-    /* Soft shimmer effect from the previous step */
+    /* Soft shimmer effect */
     background-image: linear-gradient(
         100deg, 
         transparent 20%, 
@@ -67,7 +66,7 @@ Define the shimmer animation
 
 st.header("Feature Dashboard")
 
-st.write("The expander below now has its 'PREVIEW' ribbon perfectly clipped.")
+st.write("The expander below has the final, polished 'PREVIEW' ribbon.")
 
 # Expander with the "Preview" overlay
 with st.expander("AI-Powered Data Analysis", expanded=True):
