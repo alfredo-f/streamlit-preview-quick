@@ -2,34 +2,36 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
+# --- Custom CSS for the "Preview" Billboard-Style Overlay ---
 st.markdown("""
 <style>
 /*
-Target the container of the first expander element on the page.
-We are using the 'data-testid' attribute for a more reliable selection.
+Target all expander containers using the stable 'data-testid' attribute.
 */
-div[data-testid="stExpander"]:nth-of-type(1) {
-    position: relative; /* Set position context for the overlay */
-    overflow: hidden;   /* Hide the parts of the ribbon outside the border */
+div[data-testid="stExpander"] {
+    position: relative; /* Needed for the overlay positioning */
+    overflow: hidden;   /* This clips the ribbon for the corner effect */
 }
 
 /*
-Create the "PREVIEW" ribbon using the ::before pseudo-element.
+Create and style the "PREVIEW" ribbon.
+The 'top' and 'right' values have been adjusted for full visibility.
 */
-div[data-testid="stExpander"]:nth-of-type(1)::before {
+div[data-testid="stExpander"]::before {
     content: 'PREVIEW';
     position: absolute;
-    top: 20px;
-    right: -45px; /* Position it on the right */
-    transform: rotate(45deg); /* Rotate it */
-    background-color: #007bff; /* A different color for visibility */
+    top: 12px;      /* Move it higher up */
+    right: -38px;     /* Move it more to the left (less negative) */
+    transform: rotate(45deg);
+    background-color: #007bff;
     color: white;
-    padding: 5px 40px;
-    font-size: 0.75rem;
+    padding: 3px 35px; /* Adjust padding for a tighter look */
+    line-height: 20px; /* Explicitly set line height for vertical centering */
+    font-size: 0.8rem;
     font-weight: bold;
     text-align: center;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-    z-index: 1; /* Ensure it's on top of other content */
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    z-index: 1;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -39,13 +41,13 @@ div[data-testid="stExpander"]:nth-of-type(1)::before {
 
 st.header("Feature Dashboard")
 
-# The first expander will get the "PREVIEW" ribbon
+# Expander with the "Preview" overlay
 with st.expander("AI-Powered Data Analysis"):
     st.info("This functionality is in a preview state. Results may not be final.")
     st.slider("Confidence Threshold", 0.0, 1.0, 0.75)
     st.button("Analyze Data")
 
-# A regular expander for comparison
+# Another expander, which will also get the overlay
 with st.expander("Standard Reporting"):
     st.write("This is a stable and fully functional feature.")
     st.text_input("Enter your name")
