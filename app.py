@@ -15,7 +15,6 @@ div[data-testid="stExpander"] {
 
 /*
 Create and style the "PREVIEW" ribbon.
-The 'top' and 'right' values have been adjusted for full visibility.
 */
 div[data-testid="stExpander"]::before {
     content: 'PREVIEW';
@@ -33,23 +32,24 @@ div[data-testid="stExpander"]::before {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 1;
     
-    /* Animation properties */
+    /* 
+    The NEW gradient for a soft shine effect.
+    It fades from transparent to a soft white and back to transparent.
+    */
     background-image: linear-gradient(
-        -45deg, 
-        rgba(255, 255, 255, 0.3) 25%, 
-        transparent 25%, 
-        transparent 50%, 
-        rgba(255, 255, 255, 0.3) 50%, 
-        rgba(255, 255, 255, 0.3) 75%, 
-        transparent 75%, 
-        transparent
+        100deg, 
+        transparent 20%, 
+        rgba(255, 255, 255, 0.4) 50%, 
+        transparent 80%
     );
-    background-size: 200% 200%;
-    animation: shimmer 2s infinite linear;
+    
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite linear;
 }
 
 /*
-Define the shimmer animation
+Define the shimmer animation - no changes needed here.
+It works by moving the background gradient across the element.
 */
 @keyframes shimmer {
     0% {
